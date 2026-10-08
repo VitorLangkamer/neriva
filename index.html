@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NERIVA — Estúdio de tatuagem autoral</title>
+  <meta name="description" content="NERIVA, estúdio de tatuagem autoral. Fine line, blackwork, oriental e colorido: desenhos exclusivos, criados a partir da sua história. Somente com hora marcada.">
+  <meta name="theme-color" content="#171717">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NERIVA — Traço próprio.">
+  <meta property="og:description" content="Tatuagem como linguagem. Arte com intenção. Estúdio de tatuagem autoral, somente com hora marcada.">
+  <meta property="og:image" content="assets/img/og-neriva.jpg">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400..700&display=swap">
+
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/img/estudio-800.webp 800w, assets/img/estudio-1280.webp 1280w, assets/img/estudio-1920.webp 1920w"
+        imagesizes="100vw">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Marca o documento como "com JS" antes da primeira pintura: só então a entrada do hero é animada. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- GSAP + ScrollToPlugin: rolagem suave e precisa das âncoras. Sem a CDN, o salto nativo continua funcionando. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Sprite: logo em curvas (extraído de assets/logo-completo.svg) e ícones de traço -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo-lettering" viewBox="0 0 1070 220">
+      <path d="M0 0H39L118 141V0H154V220H115L0 55Z"/><path d="M0 77L36 114V220H0Z"/>
+      <path transform="translate(187 0)" d="M0 0H143V40H40V87H127V126H40V180H143V220H0Z"/>
+      <g transform="translate(363 0)"><path fill-rule="evenodd" d="M0 0H91Q158 0 158 65Q158 109 115 122L171 220H116L60 128H38L0 90V64L38 102V40H0ZM38 40V88H86Q115 88 115 64Q115 40 86 40Z"/><path d="M0 110L38 148V220H0Z"/></g>
+      <path transform="translate(567 0)" d="M0 0H40V220H0Z"/>
+      <path transform="translate(640 0)" d="M0 0H45L99 153L153 0H198L119 220H79Z"/>
+      <path transform="translate(871 0)" fill-rule="evenodd" d="M0 220L78 0H121L199 220H153L137 172H61L45 220ZM74 133H124L99 56Z"/>
+    </symbol>
+    <symbol id="logo-full" viewBox="40 40 1070 310">
+      <use href="#logo-lettering" x="40" y="40" width="1070" height="220"/>
+      <g transform="translate(125 348) scale(0.02781125428756837 -0.02781125428756837)">
+        <path transform="translate(0 0)" d="M201 1493H1145V1323H403V881H1114V711H403V170H1163V0H201Z"/>
+        <path transform="translate(1694 0)" d="M1096 1444V1247Q981 1302 879.0 1329.0Q777 1356 682 1356Q517 1356 427.5 1292.0Q338 1228 338 1110Q338 1011 397.5 960.5Q457 910 623 879L745 854Q971 811 1078.5 702.5Q1186 594 1186 412Q1186 195 1040.5 83.0Q895 -29 614 -29Q508 -29 388.5 -5.0Q269 19 141 66V274Q264 205 382.0 170.0Q500 135 614 135Q787 135 881.0 203.0Q975 271 975 397Q975 507 907.5 569.0Q840 631 686 662L563 686Q337 731 236.0 827.0Q135 923 135 1094Q135 1292 274.5 1406.0Q414 1520 659 1520Q764 1520 873.0 1501.0Q982 1482 1096 1444Z"/>
+        <path transform="translate(3394 0)" d="M-6 1493H1257V1323H727V0H524V1323H-6Z"/>
+        <path transform="translate(5045 0)" d="M178 1493H381V586Q381 346 468.0 240.5Q555 135 750 135Q944 135 1031.0 240.5Q1118 346 1118 586V1493H1321V561Q1321 269 1176.5 120.0Q1032 -29 750 -29Q467 -29 322.5 120.0Q178 269 178 561ZM805 1899H990L762 1635H609Z"/>
+        <path transform="translate(6944 0)" d="M403 1327V166H647Q956 166 1099.5 306.0Q1243 446 1243 748Q1243 1048 1099.5 1187.5Q956 1327 647 1327ZM201 1493H616Q1050 1493 1253.0 1312.5Q1456 1132 1456 748Q1456 362 1252.0 181.0Q1048 0 616 0H201Z"/>
+        <path transform="translate(8921 0)" d="M201 1493H403V0H201Z"/>
+        <path transform="translate(9925 0)" d="M807 1356Q587 1356 457.5 1192.0Q328 1028 328 745Q328 463 457.5 299.0Q587 135 807 135Q1027 135 1155.5 299.0Q1284 463 1284 745Q1284 1028 1155.5 1192.0Q1027 1356 807 1356ZM807 1520Q1121 1520 1309.0 1309.5Q1497 1099 1497 745Q1497 392 1309.0 181.5Q1121 -29 807 -29Q492 -29 303.5 181.0Q115 391 115 745Q115 1099 303.5 1309.5Q492 1520 807 1520Z"/>
+        <path transform="translate(12988 0)" d="M403 1327V166H647Q956 166 1099.5 306.0Q1243 446 1243 748Q1243 1048 1099.5 1187.5Q956 1327 647 1327ZM201 1493H616Q1050 1493 1253.0 1312.5Q1456 1132 1456 748Q1456 362 1252.0 181.0Q1048 0 616 0H201Z"/>
+        <path transform="translate(14965 0)" d="M201 1493H1145V1323H403V881H1114V711H403V170H1163V0H201Z"/>
+        <path transform="translate(17710 0)" d="M-6 1493H1257V1323H727V0H524V1323H-6Z"/>
+        <path transform="translate(19361 0)" d="M700 1294 426 551H975ZM586 1493H815L1384 0H1174L1038 383H365L229 0H16Z"/>
+        <path transform="translate(21162 0)" d="M-6 1493H1257V1323H727V0H524V1323H-6Z"/>
+        <path transform="translate(22813 0)" d="M178 1493H381V586Q381 346 468.0 240.5Q555 135 750 135Q944 135 1031.0 240.5Q1118 346 1118 586V1493H1321V561Q1321 269 1176.5 120.0Q1032 -29 750 -29Q467 -29 322.5 120.0Q178 269 178 561Z"/>
+        <path transform="translate(24712 0)" d="M700 1294 426 551H975ZM586 1493H815L1384 0H1174L1038 383H365L229 0H16Z"/>
+        <path transform="translate(26513 0)" d="M1219 213V614H889V780H1419V139Q1302 56 1161.0 13.5Q1020 -29 860 -29Q510 -29 312.5 175.5Q115 380 115 745Q115 1111 312.5 1315.5Q510 1520 860 1520Q1006 1520 1137.5 1484.0Q1269 1448 1380 1378V1163Q1268 1258 1142.0 1306.0Q1016 1354 877 1354Q603 1354 465.5 1201.0Q328 1048 328 745Q328 443 465.5 290.0Q603 137 877 137Q984 137 1068.0 155.5Q1152 174 1219 213Z"/>
+        <path transform="translate(28500 0)" d="M201 1493H1145V1323H403V881H1114V711H403V170H1163V0H201Z"/>
+        <path transform="translate(30194 0)" d="M201 1493H502L883 477L1266 1493H1567V0H1370V1311L985 287H782L397 1311V0H201Z"/>
+      </g>
+    </symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16v.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="header-sentinel" data-header-sentinel aria-hidden="true"></div>
+
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a class="brand" href="#topo" aria-label="NERIVA — início">
+        <svg class="brand__logo" viewBox="0 0 1070 220" fill="currentColor" aria-hidden="true"><use href="#logo-lettering"/></svg>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list" role="list">
+          <li><a class="nav__link" href="#estudio">Estúdio</a></li>
+          <li><a class="nav__link" href="#estilos">Estilos</a></li>
+          <li><a class="nav__link" href="#portfolio">Portfólio</a></li>
+          <li><a class="nav__link" href="#artistas">Artistas</a></li>
+          <li><a class="nav__link" href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn--ghost btn--sm" href="#contato">Agendar sessão</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+        <span data-menu-label>Menu</span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="menu-mobile" aria-label="Principal (celular)">
+      <ul role="list">
+        <li><a class="mobile-nav__link" href="#estudio"><span>Estúdio</span><span class="mobile-nav__index">01</span></a></li>
+        <li><a class="mobile-nav__link" href="#estilos"><span>Estilos</span><span class="mobile-nav__index">02</span></a></li>
+        <li><a class="mobile-nav__link" href="#portfolio"><span>Portfólio</span><span class="mobile-nav__index">03</span></a></li>
+        <li><a class="mobile-nav__link" href="#artistas"><span>Artistas</span><span class="mobile-nav__index">04</span></a></li>
+        <li><a class="mobile-nav__link" href="#faq"><span>FAQ</span><span class="mobile-nav__index">07</span></a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#contato">
+        Agendar sessão
+        <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <p class="mobile-nav__note">Seg–Sex 10h–20h · Sáb 10h–18h<br>Somente com hora marcada</p>
+    </nav>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <!-- Foto do estúdio em tela cheia; o véu escuro (::after) garante o contraste do texto -->
+      <div class="hero__media">
+        <img src="assets/img/estudio-1920.webp"
+             srcset="assets/img/estudio-800.webp 800w, assets/img/estudio-1280.webp 1280w, assets/img/estudio-1920.webp 1920w"
+             sizes="100vw"
+             width="800" height="534"
+             alt="Interior do estúdio NERIVA: um tatuador desenha na mesa de luz, cercado por quadros e estantes."
+             fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="container hero__grid">
+        <p class="eyebrow hero__eyebrow" data-enter style="--i:0"><span class="eyebrow__index">N.00</span> Estúdio de tatuagem autoral · desde 2019</p>
+
+        <h1 class="display hero__title" id="hero-title">
+          <span class="hero__line" data-enter style="--i:1">Traço</span>
+          <span class="hero__line" data-enter style="--i:2">próprio.</span>
+        </h1>
+
+        <p class="lead hero__lead" data-enter style="--i:3">Tatuagem como linguagem. Arte com intenção. Desenhos exclusivos em fine line, blackwork, oriental e cor, criados a partir da sua história para durar a vida inteira.</p>
+
+        <div class="hero__actions" data-enter style="--i:4">
+          <a class="btn btn--primary" href="#contato">
+            Agendar sessão
+            <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#portfolio">Ver portfólio</a>
+        </div>
+
+        <dl class="facts hero__facts" data-enter style="--i:5">
+          <div class="facts__item"><dt>Atendimento</dt><dd>Somente com hora marcada</dd></div>
+          <div class="facts__item"><dt>Horário</dt><dd><span class="nowrap">Seg–Sex 10h–20h</span> · <span class="nowrap">Sáb 10h–18h</span></dd></div>
+          <div class="facts__item"><dt>Avaliação</dt><dd>4,9 de 5 em 500+ avaliações</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== N.01 ESTÚDIO ===================== -->
+    <section class="section theme-paper" id="estudio" aria-labelledby="estudio-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.01</span> O estúdio</p>
+          <h2 class="title-1 section-head__title" id="estudio-title" data-reveal>Onde histórias viram traço.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">A NERIVA é um estúdio pequeno, de portas fechadas, onde cada tatuagem começa numa conversa. Tratamos o desenho como linguagem: ele precisa dizer algo, e dizer bem, na sua pele por muito tempo.</p>
+        </header>
+
+        <div class="studio">
+          <figure class="studio__media" data-reveal>
+            <img src="assets/img/dragao-960.webp"
+                 srcset="assets/img/dragao-640.webp 640w, assets/img/dragao-960.webp 960w, assets/img/dragao-1440.webp 1440w"
+                 sizes="(min-width: 64rem) 38vw, (min-width: 48rem) 48vw, 100vw"
+                 width="640" height="963"
+                 alt="Tatuador de luvas pretas fazendo o linework de um dragão oriental no braço de um cliente."
+                 loading="lazy" decoding="async">
+            <figcaption class="caption">
+              <span>Dragão oriental — linework, sessão 1 de 3</span>
+              <span>Yumi Okada</span>
+            </figcaption>
+          </figure>
+
+          <div class="studio__aside" data-reveal style="--d:1">
+            <p>Trabalhamos só com hora marcada, um cliente por vez em cada estação. Sem vitrine de flash e sem pressa: o tempo da sessão é o tempo que o traço pede.</p>
+
+            <div class="info-block">
+              <h3 class="eyebrow">Horário</h3>
+              <dl class="hours">
+                <div><dt>Segunda a sexta</dt><dd>10h – 20h</dd></div>
+                <div><dt>Sábado</dt><dd>10h – 18h</dd></div>
+                <div><dt>Domingo</dt><dd>Fechado</dd></div>
+              </dl>
+            </div>
+
+            <div class="info-block">
+              <h3 class="eyebrow">Biossegurança</h3>
+              <p>Agulhas e materiais descartáveis, esterilização em autoclave e alvará sanitário em dia.</p>
+            </div>
+
+            <a class="link-arrow" href="#artistas">
+              Conheça os artistas
+              <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <div class="stats__item" data-reveal><dt>Anos de estúdio</dt><dd>7</dd></div>
+          <div class="stats__item" data-reveal style="--d:1"><dt>Artistas residentes</dt><dd>4</dd></div>
+          <div class="stats__item" data-reveal style="--d:2"><dt>Projetos autorais</dt><dd>1.200+</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== N.02 ESTILOS ===================== -->
+    <section class="section" id="estilos" aria-labelledby="estilos-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.02</span> Estilos</p>
+          <h2 class="title-1 section-head__title" id="estilos-title" data-reveal>Assinaturas da casa.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">Quatro linguagens, um mesmo cuidado com o desenho. Cada artista tem seu traço; você escolhe a voz que combina com a sua história.</p>
+        </header>
+
+        <ol class="styles" role="list">
+          <li class="style-card" data-reveal>
+            <span class="style-card__index">01</span>
+            <h3 class="title-2">Fine line</h3>
+            <p>Linhas finas e precisas para botânicos, objetos e composições delicadas, com sombreado em pontilhismo.</p>
+            <a class="link-arrow" href="#portfolio" data-filter-link="fine-line">
+              Ver trabalhos<span class="visually-hidden"> de fine line</span>
+              <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="style-card" data-reveal style="--d:1">
+            <span class="style-card__index">02</span>
+            <h3 class="title-2">Blackwork</h3>
+            <p>Preto sólido, contraste alto e formas gráficas pensadas para envelhecer bem na pele.</p>
+            <a class="link-arrow" href="#portfolio" data-filter-link="blackwork">
+              Ver trabalhos<span class="visually-hidden"> de blackwork</span>
+              <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="style-card" data-reveal style="--d:2">
+            <span class="style-card__index">03</span>
+            <h3 class="title-2">Oriental</h3>
+            <p>Dragões, carpas e ondas no traço japonês, com linework firme e composição que acompanha o corpo.</p>
+            <a class="link-arrow" href="#portfolio" data-filter-link="oriental">
+              Ver trabalhos<span class="visually-hidden"> em oriental</span>
+              <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="style-card" data-reveal style="--d:3">
+            <span class="style-card__index">04</span>
+            <h3 class="title-2">Colorido</h3>
+            <p>Cor saturada e contorno limpo para fechamentos, personagens e projetos pop que pedem impacto.</p>
+            <a class="link-arrow" href="#portfolio" data-filter-link="colorido">
+              Ver trabalhos<span class="visually-hidden"> coloridos</span>
+              <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+        </ol>
+
+        <p class="styles__note" data-reveal>Estilos diferentes. <span>Um só padrão: traço com intenção.</span></p>
+      </div>
+    </section>
+
+    <!-- ===================== N.03 PORTFÓLIO ===================== -->
+    <section class="section section--flush-top" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.03</span> Portfólio</p>
+          <h2 class="title-1 section-head__title" id="portfolio-title" data-reveal>Trabalhos recentes.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">Uma seleção do que passou pelas nossas mesas nos últimos meses. Toque em uma imagem para ampliar.</p>
+        </header>
+
+        <div class="toolbar" data-filters hidden>
+          <div class="filters" role="group" aria-label="Filtrar trabalhos por estilo">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos <span class="filter__count">6</span></button>
+            <button class="filter" type="button" data-filter="fine-line" aria-pressed="false">Fine line <span class="filter__count">2</span></button>
+            <button class="filter" type="button" data-filter="blackwork" aria-pressed="false">Blackwork <span class="filter__count">2</span></button>
+            <button class="filter" type="button" data-filter="oriental" aria-pressed="false">Oriental <span class="filter__count">1</span></button>
+            <button class="filter" type="button" data-filter="colorido" aria-pressed="false">Colorido <span class="filter__count">1</span></button>
+          </div>
+          <p class="toolbar__count" role="status" data-count>6 trabalhos</p>
+        </div>
+
+        <ul class="works" role="list" data-active-filter="all">
+          <li class="work" data-style="blackwork" data-reveal>
+            <figure>
+              <a class="work__open" href="assets/img/caveira-1280.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/caveira-800.webp"
+                     srcset="assets/img/caveira-480.webp 480w, assets/img/caveira-800.webp 800w, assets/img/caveira-1280.webp 1280w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="480" height="720"
+                     alt="Tatuagem blackwork de caveira com coroa e teia de aranha no antebraço."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">01</span>
+                <span class="work__text">
+                  <span class="work__title">Caveira coroada</span>
+                  <span class="work__meta">Blackwork · Antebraço · Caio Ventura</span>
+                </span>
+                <span class="work__year">2026</span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="work" data-style="fine-line" data-reveal style="--d:1">
+            <figure>
+              <a class="work__open" href="assets/img/camera-1280.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/camera-800.webp"
+                     srcset="assets/img/camera-480.webp 480w, assets/img/camera-800.webp 800w, assets/img/camera-1280.webp 1280w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="480" height="720"
+                     alt="Tatuagem fine line de câmera analógica com folhas e fotografias em pontilhismo no antebraço."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">02</span>
+                <span class="work__text">
+                  <span class="work__title">Memória analógica</span>
+                  <span class="work__meta">Fine line · Antebraço · Lia Moraes</span>
+                </span>
+                <span class="work__year">2025</span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="work" data-style="blackwork" data-reveal style="--d:2">
+            <figure>
+              <a class="work__open" href="assets/img/ronin-1280.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/ronin-800.webp"
+                     srcset="assets/img/ronin-480.webp 480w, assets/img/ronin-800.webp 800w, assets/img/ronin-1280.webp 1280w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="480" height="720"
+                     alt="Tatuador de luvas pretas fazendo o contorno de um personagem em blackwork no peitoral."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">03</span>
+                <span class="work__text">
+                  <span class="work__title">Ronin</span>
+                  <span class="work__meta">Blackwork · Peitoral, em processo · Caio Ventura</span>
+                </span>
+                <span class="work__year">2026</span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="work" data-style="fine-line" data-reveal>
+            <figure>
+              <a class="work__open" href="assets/img/serpente-1280.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/serpente-800.webp"
+                     srcset="assets/img/serpente-480.webp 480w, assets/img/serpente-800.webp 800w, assets/img/serpente-1280.webp 1280w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="480" height="932"
+                     alt="Fechamento de braço em fine line com uma serpente enrolada entre peônias."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">04</span>
+                <span class="work__text">
+                  <span class="work__title">Serpente &amp; peônia</span>
+                  <span class="work__meta">Fine line · Braço inteiro · Lia Moraes</span>
+                </span>
+                <span class="work__year">2025</span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="work" data-style="colorido" data-reveal style="--d:1">
+            <figure>
+              <a class="work__open" href="assets/img/saga-1280.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/saga-800.webp"
+                     srcset="assets/img/saga-480.webp 480w, assets/img/saga-800.webp 800w, assets/img/saga-1280.webp 1280w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="480" height="853"
+                     alt="Fechamento de braço colorido com personagens de anime, ao lado de uma máquina de bobina."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">05</span>
+                <span class="work__text">
+                  <span class="work__title">Saga</span>
+                  <span class="work__meta">Colorido · Fechamento de braço · Rafa Nunes</span>
+                </span>
+                <span class="work__year">2025</span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="work" data-style="oriental" data-reveal style="--d:2">
+            <figure>
+              <a class="work__open" href="assets/img/dragao-1440.webp">
+                <span class="visually-hidden">Ampliar imagem: </span>
+                <img src="assets/img/dragao-960.webp"
+                     srcset="assets/img/dragao-640.webp 640w, assets/img/dragao-960.webp 960w, assets/img/dragao-1440.webp 1440w"
+                     sizes="(min-width: 64rem) 30vw, (min-width: 36rem) 48vw, 100vw"
+                     width="640" height="963"
+                     alt="Linework de um dragão oriental sendo tatuado no braço, com cartucho laranja na máquina."
+                     loading="lazy" decoding="async">
+                <span class="work__zoom" aria-hidden="true"><svg><use href="#i-expand"/></svg></span>
+              </a>
+              <figcaption class="work__caption">
+                <span class="work__index">06</span>
+                <span class="work__text">
+                  <span class="work__title">Dragão</span>
+                  <span class="work__meta">Oriental · Braço, sessão 1 de 3 · Yumi Okada</span>
+                </span>
+                <span class="work__year">2026</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <p class="portfolio__more">
+          <a class="link-arrow" href="#" data-demo-link>
+            Mais trabalhos no Instagram
+            <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== N.04 ARTISTAS ===================== -->
+    <section class="section theme-paper" id="artistas" aria-labelledby="artistas-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.04</span> Artistas</p>
+          <h2 class="title-1 section-head__title" id="artistas-title" data-reveal>Mãos por trás do traço.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">Quatro artistas residentes, cada um com uma especialidade. Na conversa de desenho, indicamos quem combina melhor com o seu projeto.</p>
+        </header>
+
+        <ol class="artists" role="list">
+          <li class="artist" data-reveal>
+            <span class="artist__index">01</span>
+            <h3 class="artist__name title-2">Lia Moraes</h3>
+            <p class="artist__styles">Fine line · Botânico · Pontilhismo</p>
+            <p class="artist__years">8 anos de traço</p>
+            <p class="status" data-status="open"><span class="status__dot" aria-hidden="true"></span>Agenda aberta</p>
+          </li>
+          <li class="artist" data-reveal>
+            <span class="artist__index">02</span>
+            <h3 class="artist__name title-2">Caio Ventura</h3>
+            <p class="artist__styles">Blackwork · Ornamental · Tradicional</p>
+            <p class="artist__years">11 anos de traço</p>
+            <p class="status" data-status="waitlist"><span class="status__dot" aria-hidden="true"></span>Lista de espera</p>
+          </li>
+          <li class="artist" data-reveal>
+            <span class="artist__index">03</span>
+            <h3 class="artist__name title-2">Yumi Okada</h3>
+            <p class="artist__styles">Oriental · Linework · Fechamentos</p>
+            <p class="artist__years">6 anos de traço</p>
+            <p class="status" data-status="open"><span class="status__dot" aria-hidden="true"></span>Agenda aberta</p>
+          </li>
+          <li class="artist" data-reveal>
+            <span class="artist__index">04</span>
+            <h3 class="artist__name title-2">Rafa Nunes</h3>
+            <p class="artist__styles">Colorido · Anime · Neo-tradicional</p>
+            <p class="artist__years">5 anos de traço</p>
+            <p class="status" data-status="open"><span class="status__dot" aria-hidden="true"></span>Agenda aberta</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== N.05 DEPOIMENTOS ===================== -->
+    <section class="section theme-paper section--flush-top" id="depoimentos" aria-labelledby="depoimentos-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.05</span> Depoimentos</p>
+          <h2 class="title-1 section-head__title" id="depoimentos-title" data-reveal>O que fica depois da sessão.</h2>
+          <p class="rating section-head__intro" data-reveal style="--d:1">
+            <span class="rating__value">4,9</span>
+            <span class="rating__label">nota média em mais de 500 avaliações no Google</span>
+          </p>
+        </header>
+
+        <ul class="quotes" role="list">
+          <li data-reveal>
+            <figure class="quote">
+              <span class="quote__index">/01</span>
+              <blockquote><p>Cheguei com uma ideia vaga e saí com um desenho que parece que sempre esteve em mim. A Lia ouviu tudo, redesenhou duas vezes e não teve pressa.</p></blockquote>
+              <figcaption><span class="quote__name">Marina S.</span><span class="quote__service">Fine line · antebraço</span></figcaption>
+            </figure>
+          </li>
+          <li data-reveal style="--d:1">
+            <figure class="quote">
+              <span class="quote__index">/02</span>
+              <blockquote><p>Estúdio limpo, silencioso, sem aquela pressão de vitrine. O Caio explicou cada etapa do blackwork e a cicatrização foi impecável.</p></blockquote>
+              <figcaption><span class="quote__name">Diego A.</span><span class="quote__service">Blackwork · panturrilha</span></figcaption>
+            </figure>
+          </li>
+          <li data-reveal style="--d:2">
+            <figure class="quote">
+              <span class="quote__index">/03</span>
+              <blockquote><p>Fechei o braço em quatro sessões. A cor continua viva dois anos depois, e o atendimento foi o mesmo da primeira à última.</p></blockquote>
+              <figcaption><span class="quote__name">Thiago R.</span><span class="quote__service">Colorido · fechamento de braço</span></figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== BANDA: AGENDA ABERTA ===================== -->
+    <section class="band theme-stencil" aria-labelledby="band-title">
+      <div class="band__pattern" aria-hidden="true"></div>
+      <div class="container band__inner">
+        <div class="band__copy" data-reveal>
+          <p class="eyebrow">Novembro · 2026</p>
+          <h2 class="title-1" id="band-title">Agenda de novembro aberta.</h2>
+          <p class="lead">Vagas limitadas para projetos novos. Mande sua ideia e receba o orçamento em até 48 horas úteis.</p>
+          <a class="btn btn--inverse" href="#contato">
+            Garantir meu horário
+            <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESSO ===================== -->
+    <section class="section" id="processo" aria-labelledby="processo-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.06</span> Como agendar</p>
+          <h2 class="title-1 section-head__title" id="processo-title" data-reveal>Três passos até a pele.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">Sem fila e sem improviso. Do primeiro contato ao último retoque, você sabe o que vem em seguida.</p>
+        </header>
+
+        <ol class="steps" role="list">
+          <li class="step" data-reveal>
+            <span class="step__index">01</span>
+            <h3 class="title-2">Conte sua ideia</h3>
+            <p>Preencha o formulário com referências, região do corpo e tamanho aproximado. Respondemos em até 48 horas úteis.</p>
+          </li>
+          <li class="step" data-reveal style="--d:1">
+            <span class="step__index">02</span>
+            <h3 class="title-2">Desenho e orçamento</h3>
+            <p>Uma conversa, presencial ou por vídeo, para alinhar o desenho. Fechado o valor, a data é reservada com sinal de 30%.</p>
+          </li>
+          <li class="step" data-reveal style="--d:2">
+            <span class="step__index">03</span>
+            <h3 class="title-2">Sessão e cuidados</h3>
+            <p>Você aprova o desenho final antes do stencil e sai com o guia de cicatrização. Retoque incluso em até 60 dias.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== N.07 FAQ ===================== -->
+    <section class="section theme-paper" id="faq" aria-labelledby="faq-title">
+      <div class="container faq">
+        <header class="faq__head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.07</span> Perguntas frequentes</p>
+          <h2 class="title-1" id="faq-title" data-reveal>Antes de marcar.</h2>
+          <p data-reveal style="--d:1">Não achou sua dúvida? Mande junto com a sua ideia, a gente responde tudo na mesma conversa.</p>
+          <a class="link-arrow" href="#contato" data-reveal style="--d:2">
+            Falar com o estúdio
+            <svg class="link-arrow__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq__item" name="faq" open>
+            <summary class="faq__q">Como agendo uma sessão?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Pelo formulário desta página ou pelo WhatsApp. Você envia a ideia e nós retornamos com disponibilidade e uma estimativa de valor em até 48 horas úteis.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q">Vocês fazem desenhos exclusivos?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Sim. Todo projeto é desenhado para você e para a região escolhida. Não repetimos desenhos autorais e não copiamos trabalhos de outros artistas; referências servem de ponto de partida.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q">Quanto custa uma tatuagem?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Depende de tamanho, complexidade, região e número de sessões. O valor mínimo é R$ 350, e o orçamento final sai na conversa de desenho, sem surpresa no dia.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q">Como me preparo para a sessão?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Durma bem, faça uma refeição completa e evite álcool nas 24 horas anteriores. Venha com roupa que deixe a região livre e com a pele hidratada, sem bronzeado recente.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q">Quais são os cuidados depois?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Lave com sabonete neutro, seque sem esfregar e aplique uma camada fina de pomada cicatrizante por cerca de 15 dias. Evite sol, piscina e mar até a pele fechar.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q">Existe idade mínima?<svg class="faq__icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <div class="faq__a"><p>Sim: 18 anos, com documento oficial com foto. Não tatuamos menores de idade, mesmo com autorização dos responsáveis.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== N.08 CONTATO ===================== -->
+    <section class="section" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--rule"><span class="eyebrow__index">N.08</span> Sob agendamento</p>
+          <h2 class="title-1 section-head__title" id="contato-title" data-reveal>Conte sua ideia.</h2>
+          <p class="lead section-head__intro" data-reveal style="--d:1">Quanto mais detalhes, melhor o orçamento. Respondemos em até 48 horas úteis, por e-mail ou WhatsApp, como você preferir.</p>
+        </header>
+
+        <div class="contact">
+          <!-- Site demonstrativo: o envio é simulado no navegador, nenhum dado sai daqui. -->
+          <form class="form" id="form-agendamento" novalidate>
+            <fieldset class="form__group">
+              <legend class="eyebrow form__legend">Sobre você</legend>
+              <div class="form__fields">
+                <div class="field">
+                  <label class="field__label" for="f-nome">Nome</label>
+                  <input class="input" id="f-nome" name="nome" type="text" autocomplete="name" required aria-describedby="f-nome-erro">
+                  <p class="field__error" id="f-nome-erro" hidden></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-email">E-mail</label>
+                  <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-erro">
+                  <p class="field__error" id="f-email-erro" hidden></p>
+                </div>
+                <div class="field field--full">
+                  <label class="field__label" for="f-telefone">WhatsApp <span class="field__optional">(opcional)</span></label>
+                  <input class="input" id="f-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 91234-5678" aria-describedby="f-telefone-erro">
+                  <p class="field__error" id="f-telefone-erro" hidden></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form__group">
+              <legend class="eyebrow form__legend">Sobre a tatuagem</legend>
+              <div class="form__fields">
+                <div class="field">
+                  <label class="field__label" for="f-estilo">Estilo</label>
+                  <select class="input input--select" id="f-estilo" name="estilo">
+                    <option value="Ainda não sei">Ainda não sei</option>
+                    <option value="Fine line">Fine line</option>
+                    <option value="Blackwork">Blackwork</option>
+                    <option value="Oriental">Oriental</option>
+                    <option value="Colorido">Colorido</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-regiao">Região do corpo <span class="field__optional">(opcional)</span></label>
+                  <input class="input" id="f-regiao" name="regiao" type="text" placeholder="ex.: antebraço interno">
+                </div>
+
+                <fieldset class="field field--full choices-group">
+                  <legend class="field__label">Tamanho aproximado</legend>
+                  <div class="choices">
+                    <label class="choice"><input type="radio" name="tamanho" value="Até 10 cm" checked><span>Até 10 cm</span></label>
+                    <label class="choice"><input type="radio" name="tamanho" value="10 a 20 cm"><span>10 a 20 cm</span></label>
+                    <label class="choice"><input type="radio" name="tamanho" value="Acima de 20 cm"><span>Acima de 20 cm</span></label>
+                    <label class="choice"><input type="radio" name="tamanho" value="Fechamento"><span>Fechamento</span></label>
+                  </div>
+                </fieldset>
+
+                <div class="field field--full">
+                  <label class="field__label" for="f-ideia">Sua ideia</label>
+                  <p class="field__hint" id="f-ideia-dica">Significado, referências, cores, se é cobertura. Pelo menos 20 caracteres.</p>
+                  <textarea class="input input--area" id="f-ideia" name="ideia" rows="5" required aria-describedby="f-ideia-dica f-ideia-erro"></textarea>
+                  <p class="field__error" id="f-ideia-erro" hidden></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form__footer">
+              <div class="field">
+                <label class="check" for="f-idade">
+                  <input id="f-idade" name="maioridade" type="checkbox" value="sim" required aria-describedby="f-idade-erro">
+                  <span>Tenho 18 anos ou mais e vou levar documento com foto.</span>
+                </label>
+                <p class="field__error" id="f-idade-erro" hidden></p>
+              </div>
+
+              <button class="btn btn--primary btn--submit" type="submit">
+                <span class="btn__spinner" aria-hidden="true"></span>
+                <span data-submit-label>Enviar ideia</span>
+                <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+
+              <div class="form__status" role="status" aria-live="polite" hidden></div>
+            </div>
+          </form>
+
+          <aside class="contact__info" aria-label="Informações de contato">
+            <div class="info-block">
+              <h3 class="eyebrow">Endereço</h3>
+              <address>Rua do Traço, 214<br>Pinheiros, São Paulo · SP</address>
+            </div>
+            <div class="info-block">
+              <h3 class="eyebrow">Fale direto</h3>
+              <ul class="contact__links" role="list">
+                <li><a href="#" data-demo-link>WhatsApp · 11 90000-0000</a></li>
+                <li><a href="#" data-demo-link>contato@neriva.com.br</a></li>
+                <li><a href="#" data-demo-link>@neriva.tattoo<span class="visually-hidden"> no Instagram</span></a></li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h3 class="eyebrow">Horário</h3>
+              <dl class="hours">
+                <div><dt>Seg – Sex</dt><dd>10h – 20h</dd></div>
+                <div><dt>Sábado</dt><dd>10h – 18h</dd></div>
+                <div><dt>Domingo</dt><dd>Fechado</dd></div>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="site-footer__logo" href="#topo" aria-label="NERIVA, estúdio de tatuagem — voltar ao topo">
+        <svg viewBox="0 0 1070 310" fill="currentColor" aria-hidden="true"><use href="#logo-full"/></svg>
+      </a>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> NERIVA Estúdio de Tatuagem. Traço próprio.</p>
+        <ul class="site-footer__links" role="list">
+          <li><a href="#" data-demo-link>Instagram</a></li>
+          <li><a href="#" data-demo-link>WhatsApp</a></li>
+          <li><a href="#" data-demo-link>E-mail</a></li>
+        </ul>
+        <a class="link-arrow" href="#topo">
+          Voltar ao topo
+          <svg class="link-arrow__icon link-arrow__icon--up" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Visualizador do portfólio -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox__inner" data-lb-backdrop>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="" decoding="async">
+        <figcaption class="lightbox__caption">
+          <span class="eyebrow" data-lb-count>01 / 06</span>
+          <h2 class="title-2" id="lightbox-title" data-lb-title></h2>
+          <p class="lightbox__meta" data-lb-meta></p>
+        </figcaption>
+      </figure>
+      <div class="lightbox__controls">
+        <button class="icon-btn" type="button" data-lb="prev" aria-label="Trabalho anterior"><svg aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+        <button class="icon-btn" type="button" data-lb="next" aria-label="Próximo trabalho"><svg aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      </div>
+      <button class="icon-btn lightbox__close" type="button" data-lb="close" aria-label="Fechar visualizador"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+  </dialog>
+
+  <!-- Aviso dos links desativados (site demonstrativo) -->
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>

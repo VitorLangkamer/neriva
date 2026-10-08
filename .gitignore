@@ -1,0 +1,10 @@
+# Fotos originais do Pexels (16 MB): o site usa as versões otimizadas em assets/img/
+assets/images/
+
+# Vercel
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
