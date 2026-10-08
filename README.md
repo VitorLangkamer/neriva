@@ -2,6 +2,8 @@
 
 Site demonstrativo para a NERIVA, um estúdio de tatuagem fictício: a identidade visual da marca aplicada a uma landing page responsiva. Projeto de portfólio de design e front-end.
 
+**Ao vivo:** [neriva-delta.vercel.app](https://neriva-delta.vercel.app)
+
 ![Hero do site da NERIVA: foto do estúdio em tela cheia com o título "Traço próprio."](docs/preview.jpg)
 
 ## Destaques
